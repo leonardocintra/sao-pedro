@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres-saopedro:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=saopedro
+      - POSTGRES_USER=saopedro
+      - POSTGRES_DB=saopedro
