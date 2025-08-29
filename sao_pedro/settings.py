@@ -82,6 +82,10 @@ DATABASES = {
     "default": env.db("DATABASE_URL")
 }
 
+DATABASES['default']['OPTIONS'] = {
+    'options': '-c search_path=saopedro'
+}
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
