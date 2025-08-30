@@ -26,7 +26,14 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS =  ['*'] #env.list("ALLOWED_HOSTS")
+ALLOWED_HOSTS = ['*']  # env.list("ALLOWED_HOSTS")
+
+CORS_ALLOWED_ORIGINS = [
+    "https://saopedro-api.ypg4r9.easypanel.host",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://saopedro-api.ypg4r9.easypanel.host",
+]
 
 
 # Application definition
@@ -39,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
 
@@ -47,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
