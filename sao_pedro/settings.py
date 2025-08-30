@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'pessoas',
     'enderecos',
+    'health',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,7 @@ ROOT_URLCONF = 'sao_pedro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'health' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

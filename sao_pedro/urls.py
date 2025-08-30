@@ -20,6 +20,8 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from enderecos.views import EnderecoViewSet
+from health.views import HealthCheckView
+from health.views import WelcomeView  # importa a view do app health
 from pessoas.views import PessoaViewSet
 
 router = DefaultRouter()
@@ -27,8 +29,10 @@ router.register(r"pessoas", PessoaViewSet)
 router.register(r"enderecos", EnderecoViewSet)
 
 urlpatterns = [
+    path('', WelcomeView.as_view(), name='welcome'),
     path('admin/', admin.site.urls),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/", include(router.urls)),
+    path("api/health/", HealthCheckView.as_view(), name="health_check"),
 ]
