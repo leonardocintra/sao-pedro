@@ -33,7 +33,7 @@ class Pessoa(models.Model):
     nome = models.CharField(max_length=150)
     conhecidoPor = models.CharField(max_length=100, blank=True, null=True)
     cpf = models.CharField(max_length=11, blank=True, null=True)
-    data_nascimento = models.DateField()
+    data_nascimento = models.DateField(blank=True, null=True)
     sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
     estado_civil = models.CharField(max_length=1, choices=ESTADO_CIVIL_CHOICES)
     escolaridade = models.CharField(
