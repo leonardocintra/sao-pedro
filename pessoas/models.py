@@ -40,6 +40,7 @@ class Pessoa(models.Model):
         max_length=30, choices=ESCOLARIDADE, blank=True, null=True)
     nacionalidade = models.CharField(max_length=100, blank=True, null=True)
     foto = models.CharField(max_length=255, blank=True, null=True)
+    ativo = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nome

@@ -21,6 +21,7 @@ class PessoaSerializer(serializers.ModelSerializer):
             "nacionalidade",
             "foto",
             "enderecos",
+            "ativo",
         ]
 
     def validate_cpf(self, value):
