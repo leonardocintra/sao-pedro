@@ -11,12 +11,13 @@ class PessoaSerializer(serializers.ModelSerializer):
         model = Pessoa
         fields = [
             "id",
+            "uuid",
             "nome",
             "conhecidoPor",
             "cpf",
-            "data_nascimento",
+            "dataNascimento",
             "sexo",
-            "estado_civil",
+            "estadoCivil",
             "escolaridade",
             "nacionalidade",
             "foto",

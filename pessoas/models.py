@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.db.models import Q
 
@@ -30,12 +31,14 @@ class Pessoa(models.Model):
         ('pos_doutorado', 'Pós-Doutorado'),
     ]
 
+    uuid = models.UUIDField(unique=False, editable=False,
+                            auto_created=True, db_index=True, default=uuid.uuid4)
     nome = models.CharField(max_length=150)
     conhecidoPor = models.CharField(max_length=100, blank=True, null=True)
     cpf = models.CharField(max_length=11, blank=True, null=True)
-    data_nascimento = models.DateField(blank=True, null=True)
+    dataNascimento = models.DateField(blank=True, null=True)
     sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
-    estado_civil = models.CharField(max_length=1, choices=ESTADO_CIVIL_CHOICES)
+    estadoCivil = models.CharField(max_length=1, choices=ESTADO_CIVIL_CHOICES)
     escolaridade = models.CharField(
         max_length=30, choices=ESCOLARIDADE, blank=True, null=True)
     nacionalidade = models.CharField(max_length=100, blank=True, null=True)
