@@ -11,3 +11,4 @@ class PessoaViewSet(viewsets.ModelViewSet):
     serializer_class = PessoaSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = PessoaFilter
+    lookup_field = 'uuid'

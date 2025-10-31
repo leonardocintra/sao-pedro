@@ -31,7 +31,7 @@ class Pessoa(models.Model):
         ('pos_doutorado', 'Pós-Doutorado'),
     ]
 
-    uuid = models.UUIDField(unique=False, editable=False,
+    uuid = models.UUIDField(unique=True, editable=False,
                             auto_created=True, db_index=True, default=uuid.uuid4)
     nome = models.CharField(max_length=150)
     conhecidoPor = models.CharField(max_length=100, blank=True, null=True)
